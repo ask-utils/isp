@@ -4,3 +4,4 @@ examples/
 .DS_Store
 .envrc
 .idea/
+.rpt2_cache/

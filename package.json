@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "description": "Alexa ISP utilities",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "rollup -c",
+    "tsc": "tsc",
     "test": "jest",
     "lint": "eslint 'libs/**/*.{ts,tsx}'",
     "doc": "typedoc --out docs libs/",
@@ -36,6 +38,8 @@
     "@typescript-eslint/eslint-plugin": "^1.1.1",
     "@typescript-eslint/parser": "^1.1.1",
     "@typescript-eslint/typescript-estree": "^1.1.1",
+    "rollup": "^1.12.3",
+    "rollup-plugin-typescript2": "^0.20.1",
     "ask-sdk": "^2.5.2",
     "ask-sdk-core": "^2.5.2",
     "ask-sdk-model": "^1.15.1",
@@ -49,8 +53,7 @@
     "moment": "^2.24.0",
     "ts-jest": "^23.10.5",
     "typedoc": "^0.14.1",
-    "typescript": "^3.3.3333",
-    "uuid": "^3.3.2"
+    "typescript": "^3.3.3333"
   },
   "jest": {
     "moduleFileExtensions": [

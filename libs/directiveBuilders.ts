@@ -12,14 +12,14 @@ export const createRandomToken = (): string => Math.random().toString(36).slice(
  * @param token [string] - request token
  */
 export const getBuyProductDirective = (productId: string, token: string = createRandomToken()): SendRequestDirective => {
-  return {
-    type: "Connections.SendRequest",
-    name: "Buy",
-    payload: {
-        InSkillProduct: {
-            productId,
-        }
-    },
-    token
-  }
+    return {
+        type: 'Connections.SendRequest',
+        name: 'Buy',
+        payload: {
+            InSkillProduct: {
+                productId
+            }
+        },
+        token
+    }
 }
