@@ -284,6 +284,10 @@ ask-sdk@^2.5.2:
     ask-sdk-dynamodb-persistence-adapter "^2.5.2"
     ask-sdk-model "^1.9.0"
 
+ask-utils@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/ask-utils/-/ask-utils-1.6.0.tgz#1918be828a77c13a0f2187d837c27fae8d86d9ed"
+
 asn1@~0.2.3:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/asn1/-/asn1-0.2.4.tgz#8d2475dfab553bb33e77b54e59e880bb8ce23136"

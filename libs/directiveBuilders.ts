@@ -23,3 +23,16 @@ export const getBuyProductDirective = (productId: string, token: string = create
         token
     }
 }
+
+export const getCancelProductDirective = (productId: string, token: string = createRandomToken()): SendRequestDirective => {
+    return {
+        type: 'Connections.SendRequest',
+        name: 'Cancel',
+        payload: {
+            InSkillProduct: {
+                productId
+            }
+        },
+        token
+    }
+}
