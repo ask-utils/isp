@@ -14,9 +14,30 @@ $ npm i -S @ask-utils/isp
 ## Usage
 
 ```typescript
-import ISP from '@ask-utils/isp'
 
-// WIP
+import { getProductByName } from '@ask-utils/isp'
+
+export default = {
+  handle() {
+    return true
+  },
+  async handler(handlerInput) {
+    const { requestEnvelope, responseBuilder, serviceClientFactory } = handlerInput
+    const locale = getLocale(requestEnvelope)
+    if (!serviceClientFactory) {
+      return responseBuilder.speak('can not call api').getResponse()
+    }
+    const client = serviceClientFactory.getMonetizationServiceClient()
+    const { inSkillProducts } = await client.getInSkillProducts(locale)
+    const product = getProductByName(inSkillProducts, 'myProduct')
+    return responseBuilder
+      .speak(makeParagraphText([
+        product.summary,
+        'Will you buy the product?'
+      ]))
+      .getResponse()
+  }
+}
 ```
 
 ## development
