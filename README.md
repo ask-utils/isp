@@ -8,7 +8,7 @@ https://ask-utils.github.io/isp/
 ## Getting started
 
 ```
-$ npm i -S @ask-utils/proactive-event
+$ npm i -S @ask-utils/isp
 ```
 
 ## Usage
