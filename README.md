@@ -1,9 +1,10 @@
 # ASK-Utils - Utility functions for ask-sdk
 [![Build Status](https://travis-ci.org/ask-utils/isp.svg?branch=master)](https://travis-ci.org/ask-utils/isp)
-[![npm version](https://badge.fury.io/js/@ask-utils/isp.svg)](https://badge.fury.io/js/@ask-utils/isp)
-![logo](https://raw.githubusercontent.com/ask-utils/ask-utils/master/docs/img/logo.png)
 
-https://ask-utils.github.io/isp/
+https://www.npmjs.com/package/@ask-utils/isp
+
+Alexa ISP (In Skill Purchasing) helpers.
+Easy, Shot, Simpley.
 
 ## Getting started
 
@@ -11,30 +12,55 @@ https://ask-utils.github.io/isp/
 $ npm i -S @ask-utils/isp
 ```
 
-## Usage
+## Before ISP Utils
+We have to take care of a lot of case to make a buy request.
 
 ```typescript
+import { getLocale } from 'ask-sdk-core'
 
-import { getProductByName } from '@ask-utils/isp'
-
-export default = {
+const beforeISPUtils = {
   handle() {
     return true
   },
   async handler(handlerInput) {
-    const { requestEnvelope, responseBuilder, serviceClientFactory } = handlerInput
-    const locale = getLocale(requestEnvelope)
-    if (!serviceClientFactory) {
-      return responseBuilder.speak('can not call api').getResponse()
-    }
-    const client = serviceClientFactory.getMonetizationServiceClient()
-    const { inSkillProducts } = await client.getInSkillProducts(locale)
-    const product = getProductByName(inSkillProducts, 'myProduct')
-    return responseBuilder
-      .speak(makeParagraphText([
-        product.summary,
-        'Will you buy the product?'
-      ]))
+  if (!handlerInput.serviceClientFactory) throw new Error('No service client')
+  const client = handlerInput.serviceClientFactory.getMonetizationServiceClient()
+  const { inSkillProducts } = await client.getInSkillProducts(getLocale(handlerInput.requestEnvelope))
+  if (!inSkillProducts) throw new Error('No product')
+  const product = inSkillProducts.find(product => product.name === 'YOUR_PPRODUCT_NAME')
+  if (!product) throw new Error('no product')
+  return handlerInput.responseBuilder
+      .addDirective({
+        'type': 'Connections.SendRequest',
+        'name': 'Buy',
+        'payload': {
+          'InSkillProduct': {
+            'productId': product.productId
+          }
+        },
+        'token': 'correlationToken'
+      })
+      .getResponse()
+  }
+}
+```
+
+We just call our client. Don't have to find or filter API response lists.
+
+```typescript
+import { ISPProductClient, getBuyProductDirective } from '@ask-utils/isp'
+const afterISPUtils = {
+  handle() {
+    return true
+  },
+  async handler(handlerInput) {
+    const client = new ISPProductClient(handlerInput)
+    const product = await client.searchProduct({
+      productName: 'YOUR_PPRODUCT_NAME'
+    })
+    if (!product) throw new Error('no product')
+    return handlerInput.responseBuilder
+      .addDirective(getBuyProductDirective(product.productId))
       .getResponse()
   }
 }

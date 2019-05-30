@@ -11,3 +11,7 @@ __tests__/
 libs/
 .idea/
 examples/
+rollup.config.js
+tsconfig.json
+yarn.lock
+.rpt2_cache/
