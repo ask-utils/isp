@@ -1,7 +1,8 @@
 # ASK-Utils - Utility functions for ask-sdk
 [![Build Status](https://travis-ci.org/ask-utils/isp.svg?branch=master)](https://travis-ci.org/ask-utils/isp)
 
-https://www.npmjs.com/package/@ask-utils/isp
+NPM: https://www.npmjs.com/package/@ask-utils/isp
+Docs: https://ask-utils.github.io/isp/
 
 Alexa ISP (In Skill Purchasing) helpers.
 Easy, Shot, Simpley.
