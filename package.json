@@ -43,6 +43,7 @@
     "ask-sdk-core": "^2.5.2",
     "ask-sdk-model": "^1.15.1",
     "ask-utils": "^1.6.0",
+    "axios": "^0.18.0",
     "eslint": "^5.15.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",

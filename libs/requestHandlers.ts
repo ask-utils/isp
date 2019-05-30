@@ -1,6 +1,5 @@
 import {
   HandlerInput,
-  getRequestType
 } from 'ask-sdk-core'
 import {
   interfaces,

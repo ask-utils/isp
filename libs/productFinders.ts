@@ -1,7 +1,7 @@
 import { services } from 'ask-sdk-model'
 import monetization = services.monetization
 import InSkillProduct = monetization.InSkillProduct
-export type InskillProducts = InSkillProduct[]
+type InskillProducts = Array<InSkillProduct>
 
 /**
  * Get purchaseable products
