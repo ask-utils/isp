@@ -34,6 +34,7 @@
   "author": "Hidetaka Okamoto <info@wp-kyoto.net> (https://wp-kyoto.net)",
   "license": "MIT",
   "dependencies": {
+    "@ask-utils/handlers": "^1.2.0",
     "ask-sdk": "^2.5.2",
     "ask-sdk-core": "^2.5.2",
     "ask-sdk-model": "^1.15.1",

@@ -2,6 +2,21 @@
 # yarn lockfile v1
 
 
+"@ask-utils/handlers@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@ask-utils/handlers/-/handlers-1.2.0.tgz#ec8976583a1dc2a2b0cb717acde9df1424e5cfa0"
+  integrity sha512-WqKr1+yFJv1hV+US8dnCKx5R/wo99i//wqCOPDugRNc9y83WDZZKKgUlsO3RZORmNDO40Xa1Vem2Gn/XE7ZFlQ==
+  dependencies:
+    ask-sdk "^2.3.0"
+    ask-sdk-core "^2.0.7"
+    ask-sdk-model "^1.3.1"
+    ask-sdk-runtime "^2.4.0"
+    ask-utils "^1.5.1"
+    axios "^0.19.0"
+    class-resolver "^1.1.0"
+    moment "^2.24.0"
+    uuid "^3.3.2"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.0.0-beta.35":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0.tgz#06e2ab19bdb535385559aabb5ba59729482800f8"
@@ -308,7 +323,7 @@ arrify@^1.0.1:
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
   integrity sha1-iYUI2iIm84DfkEcoRWhJwVAaSw0=
 
-ask-sdk-core@^2.5.2, ask-sdk-core@^2.6.0:
+ask-sdk-core@^2.0.7, ask-sdk-core@^2.5.2, ask-sdk-core@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/ask-sdk-core/-/ask-sdk-core-2.6.0.tgz#8d067b190f065113980485d9a948a2a1f80a4132"
   integrity sha512-1NPiqxFiQbBOxZtgtEYMCU6kWwMcyBxSEpL7B71yHh9o7v6Tqaiu7j/ukUxXh5Ingr+23jSptOLPfiWo5fBorA==
@@ -322,7 +337,7 @@ ask-sdk-dynamodb-persistence-adapter@^2.6.0:
   dependencies:
     aws-sdk "^2.163.0"
 
-ask-sdk-model@^1.15.1, ask-sdk-model@^1.9.0:
+ask-sdk-model@^1.15.1, ask-sdk-model@^1.3.1, ask-sdk-model@^1.9.0:
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/ask-sdk-model/-/ask-sdk-model-1.16.0.tgz#05ebbbdd26d72769e4a29c4a62bdc98597d2746a"
   integrity sha512-GPIfiQVXUAqUVv0x+Z2h3a3XW4Et9bNhdQ2cNkfeHPDd3eJ8K8JMBNGcJk32rEQnef2uEf03lcjz2sCvHBlf+A==
@@ -332,7 +347,7 @@ ask-sdk-runtime@^2.4.0:
   resolved "https://registry.yarnpkg.com/ask-sdk-runtime/-/ask-sdk-runtime-2.4.0.tgz#ebdb213fee934f81c751dc783266de4a1bc155db"
   integrity sha512-NiTXGeljx3wV9GIbwOvYc3EKPLTR1ZVoJBGNNyoAwg89v1L/hZgg5p3rJM0YJfIqw6HJUHJbtdJsRIHtkscxRA==
 
-ask-sdk@^2.5.2:
+ask-sdk@^2.3.0, ask-sdk@^2.5.2:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/ask-sdk/-/ask-sdk-2.6.0.tgz#ea71e41acd2a5dfc0dcbfd8497dd1ebfe27e10f2"
   integrity sha512-nQyA0tRsoJ3469qhpNgfDmcQR18hcj38YfdzM2Zc/tcjBV/LEYOqcapVt+UCiPggn4kOafLnunXtq2VH3yi/YQ==
@@ -341,7 +356,7 @@ ask-sdk@^2.5.2:
     ask-sdk-dynamodb-persistence-adapter "^2.6.0"
     ask-sdk-model "^1.9.0"
 
-ask-utils@^1.6.0:
+ask-utils@^1.5.1, ask-utils@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/ask-utils/-/ask-utils-1.6.0.tgz#1918be828a77c13a0f2187d837c27fae8d86d9ed"
   integrity sha512-D4rIRTJUa33r4DT5/Ky5HDHBpf58nVku2JhRnRg2r/5F6iS76vvr2cxDk3aWAzSoHaQmvz8s8vgBZhrtLMxy6A==
@@ -419,6 +434,14 @@ axios@^0.18.0:
   version "0.18.1"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.1.tgz#ff3f0de2e7b5d180e757ad98000f1081b87bcea3"
   integrity sha512-0BfJq4NSfQXd+SkFdrvFbG7addhYSBA2mQwISr46pD6E5iqkWg02RAs8vyTT/j0RTnoYmeXauBuSv1qKwR179g==
+  dependencies:
+    follow-redirects "1.5.10"
+    is-buffer "^2.0.2"
+
+axios@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.0.tgz#8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8"
+  integrity sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==
   dependencies:
     follow-redirects "1.5.10"
     is-buffer "^2.0.2"
@@ -763,6 +786,11 @@ ci-info@^1.5.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-1.6.0.tgz#2ca20dbb9ceb32d4524a683303313f0304b1e497"
   integrity sha512-vsGdkwSCDpWmP80ncATX7iea5DWQemg1UgCW5J8tqjU3lYw4FBYuj89J0CTVomA7BEfvSZd84GmHko+MxFQU2A==
+
+class-resolver@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/class-resolver/-/class-resolver-1.1.0.tgz#227914f054c04559455a77a2fd2477dac3268345"
+  integrity sha512-sXaDSKmEAa0gb9T+JHHH8IF10qt49HDwYF43xzwoVel3R5pOvODdZ0WbL+Ex/2t9sLY2MtgX9QPPUJAE7/Xp2A==
 
 class-utils@^0.3.5:
   version "0.3.6"

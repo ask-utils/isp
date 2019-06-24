@@ -57,6 +57,9 @@ export class ISPProductClient extends APIClient {
         super(handlerInput.requestEnvelope, isDebug)
         this.attributeManager = handlerInput.attributesManager
     }
+    public getCacheStatus(): 'enable' | 'disable' {
+        return this.cacheUsage
+    }
     /**
    * Disallow to use the session attributes item at first
    **/
