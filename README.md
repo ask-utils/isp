@@ -71,6 +71,8 @@ const afterISPUtils = {
 
 ### Load ISP data
 If start a new Session, it call ISP API to get your products and set to the session attributes.
+The idea is from this blog post.
+https://developer.amazon.com/ja/blogs/alexa/post/75ee61df-8365-44bb-b28f-e708000891ad/how-to-use-interceptors-to-simplify-handler-code-and-cache-product-and-purchase-information-in-monetized-alexa-skills
 
 ```typescript
 import { loadISPDataInterceptor } from '@ask-utils/isp'

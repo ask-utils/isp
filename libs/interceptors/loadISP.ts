@@ -6,28 +6,28 @@ import { HandlerInput, getLocale, isNewSession } from 'ask-sdk-core'
  * ```typescript
  * // set it into the request interceptor
  * .addRequestInteceptor(loadISPDataInterceptor)
- * 
+ *
  * // get product from session attributes
  * import { getAllEntitledProducts } from '@ask-utils/isp'
- * 
+ *
  * const { inSkillProducts } = handlerInput.attributesManager.getSessionAttributes()
  * const entitledProducts = getAllEntitledProducts(inSkillProducts)
  * ```
  */
 export const loadISPDataInterceptor = {
-  async process({ requestEnvelope, serviceClientFactory, attributesManager}: HandlerInput) {
-    if (!requestEnvelope.session || !isNewSession(requestEnvelope)) return
-    if (!serviceClientFactory) return
-    // new session, check to see what products are already owned.
-    try {
-      const locale = getLocale(requestEnvelope);
-      const ms = serviceClientFactory.getMonetizationServiceClient();
-      const result = await ms.getInSkillProducts(locale);
-      const sessionAttributes = attributesManager.getSessionAttributes();
-      sessionAttributes.inSkillProducts = result.inSkillProducts;
-      attributesManager.setSessionAttributes(sessionAttributes);
-    } catch (error) {
-      console.log(`Error calling InSkillProducts API: ${error}`);
+    async process ({ requestEnvelope, serviceClientFactory, attributesManager }: HandlerInput): Promise<void> {
+        if (!requestEnvelope.session || !isNewSession(requestEnvelope)) return
+        if (!serviceClientFactory) return
+        // new session, check to see what products are already owned.
+        try {
+            const locale = getLocale(requestEnvelope)
+            const ms = serviceClientFactory.getMonetizationServiceClient()
+            const result = await ms.getInSkillProducts(locale)
+            const sessionAttributes = attributesManager.getSessionAttributes()
+            sessionAttributes.inSkillProducts = result.inSkillProducts
+            attributesManager.setSessionAttributes(sessionAttributes)
+        } catch (error) {
+            console.log(`Error calling InSkillProducts API: ${error}`)
+        }
     }
-  },
-};
+}
