@@ -67,6 +67,29 @@ const afterISPUtils = {
 }
 ```
 
+## Interceptors
+
+### Load ISP data
+If start a new Session, it call ISP API to get your products and set to the session attributes.
+
+```typescript
+import { loadISPDataInterceptor } from '@ask-utils/isp'
+
+// add interceptor
+.addRequestInteceptor(loadISPDataInterceptor)
+```
+
+You can get the products by the following code.
+
+```typescript
+
+// get product from session attributes
+import { getAllEntitledProducts } from '@ask-utils/isp'
+
+const { inSkillProducts } = handlerInput.attributesManager.getSessionAttributes()
+const entitledProducts = getAllEntitledProducts(inSkillProducts)
+```
+
 ## development
 
 ```

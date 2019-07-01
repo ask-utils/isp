@@ -28,7 +28,9 @@ export const searchProductByEntitledStatus = (inSkillProductList: InskillProduct
  * @param inSkillProductList {services.monetization.InSkillProduct[]}
  */
 export const getAllEntitledProducts = (inSkillProductList: InskillProducts): InskillProducts => {
-    return searchProductByEntitledStatus(inSkillProductList, 'ENTITLED')
+    const product = searchProductByEntitledStatus(inSkillProductList, 'ENTITLED')
+    console.log('Currently entitled products: %j', product)
+    return product
 }
 
 /**
